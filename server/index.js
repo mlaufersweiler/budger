@@ -2,6 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
+const {
+  signupUser,
+  loginUser,
+  getUser,
+  logoutUser,
+  editUsername
+} = require("./controllers/authController");
 
 const app = express();
 
@@ -24,6 +31,12 @@ massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
   console.log("Database connected");
 });
+//auth endpoints
+app.post("/auth/signup", signupUser);
+app.post("/auth/login", loginUser);
+app.get("/auth/user", getUser);
+app.post("/auth/logout", logoutUser);
+app.put("/auth/user/:username", editUsername);
 
 app.listen(SERVER_PORT, () => {
   console.log(`server listening on port ${SERVER_PORT}`);
