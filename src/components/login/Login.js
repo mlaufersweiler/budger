@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import Facebook from "../Facebook";
-import EditUsername from "../EditUsername";
+
+// import EditUsername from "../EditUsername";
 
 export class Login extends Component {
   constructor() {
@@ -62,14 +62,11 @@ export class Login extends Component {
 
           <br />
           <br />
-          <a>
+          {/* <a>
             <Link to="/editUserName" className="waves-effect waves-UserName">
               Edit User Name
             </Link>
-          </a>
-
-          <h1 className="facebook-Login"></h1>
-          <Facebook />
+          </a> */}
         </div>
       </div>
     );
