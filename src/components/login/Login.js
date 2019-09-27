@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import Facebook from "../Facebook";
+import EditUsername from "../EditUsername";
 
 export class Login extends Component {
   constructor() {
@@ -37,24 +40,36 @@ export class Login extends Component {
 
   render() {
     if (this.state.redirect) {
-      alert("login successful. Welcome.");
       return <Redirect to="/" />;
     }
 
     return (
-      <div>
-        <h3> Login</h3>
+      <div className="container">
+        <h3> Log In</h3>
         <div>
-          {" "}
-          Username
           <input placeholder="username" onChange={this.handleUsername} />
-          Password
           <input
             placeholder="password "
             type="password"
             onChange={this.handlePassword}
           />
-          <button onClick={this.loginUser}>Password</button>
+          <a
+            className="waves-effect waves-light btn-signup"
+            onClick={this.loginUser}
+          >
+            Log In
+          </a>
+
+          <br />
+          <br />
+          <a>
+            <Link to="/editUserName" className="waves-effect waves-UserName">
+              Edit User Name
+            </Link>
+          </a>
+
+          <h1 className="facebook-Login"></h1>
+          <Facebook />
         </div>
       </div>
     );
